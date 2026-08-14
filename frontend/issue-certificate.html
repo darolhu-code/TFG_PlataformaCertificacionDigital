@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Emitir certificado - Plataforma de Certificación Digital</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Tom Select: desplegables con búsqueda (organización/curso/alumno). Tema propio para Bootstrap 5,
+         así que no hace falta CSS adicional para que combine con el resto del proyecto. -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.bootstrap5.min.css"
+    >
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="app-page">
+
+    <!-- =====================================================
+         BARRA SUPERIOR - Igual que en certificates.html / certificate-detail.html
+         ===================================================== -->
+
+    <nav class="navbar navbar-expand-lg app-navbar">
+
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center gap-2" href="certificates.html">
+
+                <div class="navbar-brand-icon">
+                    <i class="bi bi-patch-check"></i>
+                </div>
+
+                <span>
+                    Plataforma de Certificación Digital
+                </span>
+
+            </a>
+
+
+            <div class="d-flex align-items-center gap-3">
+
+                <div class="text-end d-none d-sm-block">
+
+                    <div id="actor-display-name" class="user-type-value">
+                        Cargando...
+                    </div>
+
+                    <div id="actor-type" class="user-type-label">
+                        Cargando...
+                    </div>
+
+                </div>
+
+                <button
+                    id="logout-button"
+                    class="btn btn-outline-danger btn-sm"
+                >
+                    <i class="bi bi-box-arrow-right me-1"></i>
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL de la pantalla - Emitir certificado
+         ===================================================== -->
+
+    <main class="container py-5">
+
+        <!-- Cabecera de sección + botón de volver -->
+
+        <div class="row align-items-center mb-4">
+
+            <div class="col">
+
+                <p class="section-kicker mb-1">
+                    Certificados
+                </p>
+
+                <h1 class="section-title mb-2">
+                    Emitir certificado
+                </h1>
+
+                <p class="section-description mb-0">
+                    Registra un nuevo certificado en la plataforma.
+                </p>
+
+            </div>
+
+            <div class="col-auto">
+
+                <a href="certificates.html" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-arrow-left me-1"></i>
+                    Volver a certificados
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Formulario de emisión -->
+        <div class="card app-card border-0">
+
+            <div class="card-body p-4">
+
+                <!-- Error de emisión o de carga de cursos/alumnos; el texto lo rellena issue-certificate.js con el mensaje real de la API -->
+                <div id="issue-error" class="alert alert-danger d-none"></div>
+
+                <!-- Confirmación tras emitir correctamente -->
+                <div id="issue-success" class="alert alert-success d-none"></div>
+
+                <form id="issue-form">
+
+                    <!-- Solo un administrador elige organización; una organización siempre emite bajo su propio id.
+                         Empieza oculto: issue-certificate.js lo muestra según el actor_type guardado en el login. -->
+                    <div class="mb-3 d-none" id="organization-field">
+                        <label for="issue-organization-select" class="form-label fw-semibold">Organización</label>
+                        <select id="issue-organization-select" class="form-select"></select>
+                    </div>
+
+                    <!-- Empieza vacío y deshabilitado: se rellena al cargar la página (organización) o al elegir
+                         una organización (administrador) -->
+                    <div class="mb-3">
+                        <label for="issue-course-select" class="form-label fw-semibold">Curso</label>
+                        <select id="issue-course-select" class="form-select"></select>
+                    </div>
+
+                    <!-- Empieza vacío y deshabilitado: solo se rellena, con los alumnos matriculados, al elegir un curso -->
+                    <div class="mb-3">
+                        <label for="issue-student-select" class="form-label fw-semibold">Alumno</label>
+                        <select id="issue-student-select" class="form-select"></select>
+                    </div>
+
+                    <!-- Sin "required": la validación la hace issue-certificate.js para que el error se muestre
+                         siempre con el mismo aviso rojo, en vez del globo nativo del navegador -->
+                    <div class="mb-3">
+                        <label for="issue-certificate-name" class="form-label fw-semibold">Nombre del certificado</label>
+                        <input type="text" class="form-control" id="issue-certificate-name">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="issue-file" class="form-label fw-semibold">Documento PDF</label>
+                        <input type="file" accept="application/pdf" class="form-control" id="issue-file">
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" id="issue-submit-button" class="btn btn-primary">
+                            <i class="bi bi-file-earmark-arrow-up me-1"></i>
+                            Emitir certificado
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER COMÚN
+         ===================================================== -->
+
+    <footer class="app-footer">
+
+        <div class="container text-center">
+
+            <p class="footer-project mb-2">
+                Trabajo Final de Grado CAI (UNIR) - David Roldán Huélamo - 2026
+            </p>
+
+            <div class="academic-notice-footer">
+
+                <i class="bi bi-info-circle me-1"></i>
+
+                Proyecto académico desarrollado exclusivamente con fines educativos y
+                demostrativos como Trabajo Fin de Grado. No destinado a uso productivo
+                ni a la emisión de certificaciones oficiales.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- Tom Select: JS completo (incluye los plugins que usamos, sin dependencias adicionales) -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/issue-certificate.js"></script>
+
+</body>
+
+</html>

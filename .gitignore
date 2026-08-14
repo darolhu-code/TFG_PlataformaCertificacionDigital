@@ -1,0 +1,18 @@
+# Entorno virtual
+.venv/
+
+# Variables de entorno
+.env
+
+# Caché Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Creación única de la wallet - se hará una única vez al inicio del proyecto
+wallet/

@@ -1,0 +1,590 @@
+/* =========================================================
+   ESTILOS GENERALES
+   ========================================================= */
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Inter", sans-serif;
+}
+
+
+/* =========================================================
+   PÁGINA DE LOGIN
+   ========================================================= */
+
+.login-page {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(13, 110, 253, 0.15),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(13, 202, 240, 0.13),
+            transparent 35%
+        ),
+        #f6f8fb;
+}
+
+
+/*
+   Contenedor general ancho para que la cabecera
+   tenga suficiente espacio horizontal.
+*/
+
+.login-wrapper {
+    width: 100%;
+    max-width: 900px;
+}
+
+
+/* =========================================================
+   ICONO PRINCIPAL LOGIN
+   ========================================================= */
+
+.login-icon {
+    width: 72px;
+    height: 72px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d6efd,
+            #0dcaf0
+        );
+
+    color: white;
+
+    font-size: 2rem;
+
+    box-shadow:
+        0 12px 30px rgba(13, 110, 253, 0.22);
+}
+
+
+/* =========================================================
+   CABECERA
+   ========================================================= */
+
+.login-title {
+    margin-bottom: 10px;
+
+    color: #1c2a3a;
+
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+/*
+   Subtítulo ancho para que aparezca en una sola
+   línea cuando haya espacio suficiente.
+*/
+
+.login-subtitle {
+    max-width: 850px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    color: #6c757d;
+
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+/*
+   Identificación del Trabajo Final de Grado.
+*/
+
+.project-reference {
+    color: #0d6efd;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TARJETA DE LOGIN
+   ========================================================= */
+
+/*
+   La cabecera es ancha, pero mantenemos
+   el formulario compacto.
+*/
+
+.login-card {
+    width: 100%;
+    max-width: 520px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 20px;
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 15px 45px rgba(30, 41, 59, 0.10);
+}
+
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.input-group-text {
+    background-color: #f8f9fa;
+
+    color: #6c757d;
+}
+
+
+.form-control,
+.form-select,
+.input-group-text {
+    min-height: 48px;
+}
+
+
+.form-control:focus {
+    border-color: #86b7fe;
+
+    box-shadow:
+        0 0 0 0.2rem rgba(13, 110, 253, 0.12);
+}
+
+
+/* =========================================================
+   BOTÓN DE LOGIN
+   ========================================================= */
+
+.login-button {
+    min-height: 50px;
+
+    border-radius: 12px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 20px rgba(13, 110, 253, 0.18);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.login-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 24px rgba(13, 110, 253, 0.25);
+}
+
+
+/* =========================================================
+   TECNOLOGÍAS
+   ========================================================= */
+
+.architecture-info {
+    width: 100%;
+    max-width: 520px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    color: #52606d;
+}
+
+
+.architecture-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 12px;
+
+    border: 1px solid rgba(13, 110, 253, 0.08);
+    border-radius: 12px;
+
+    background-color: rgba(255, 255, 255, 0.65);
+}
+
+
+.architecture-item i {
+    color: #0d6efd;
+
+    font-size: 1.3rem;
+}
+
+
+.architecture-item span {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FOOTER DEL LOGIN
+   ========================================================= */
+
+.login-footer {
+    border-top: 1px solid rgba(108, 117, 125, 0.15);
+
+    width: 100%;
+    max-width: 700px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 15px;
+
+}
+
+/* =========================================================
+   FOOTER DEL RESTO DE PÁGINAS DE LA APP
+   ========================================================= */
+
+.footer-project {
+    color: #6c757d;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+
+/*
+   Aviso académico.
+
+   En el login no repetimos el nombre completo del TFG ya que aparece en la cabecera.
+*/
+
+.academic-notice-footer {
+    width: 100%;
+
+    padding: 10px 14px;
+
+    border: 1px solid rgba(108, 117, 125, 0.15);
+    border-radius: 10px;
+
+    background-color: rgba(255, 255, 255, 0.55);
+
+    color: #6c757d;
+
+    font-size: 0.72rem;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   PANTALLAS PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    .login-title {
+        font-size: 1.65rem;
+    }
+
+
+    .login-subtitle {
+        font-size: 0.9rem;
+    }
+
+
+    .project-reference {
+        font-size: 0.8rem;
+    }
+
+
+    .academic-notice-footer {
+        font-size: 0.68rem;
+    }
+
+}
+
+
+/* =========================================================
+   PÁGINAS DE LA APLICACIÓN
+   ========================================================= */
+
+.app-page {
+    min-height: 100vh;
+    background-color: #f6f8fb;
+    color: #1c2a3a;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.app-navbar {
+    background-color: #ffffff;
+
+    border-bottom: 1px solid rgba(108, 117, 125, 0.12);
+
+    box-shadow:
+        0 4px 18px rgba(30, 41, 59, 0.05);
+}
+
+
+.navbar-brand {
+    color: #1c2a3a;
+    font-weight: 700;
+}
+
+
+.navbar-brand:hover {
+    color: #1c2a3a;
+}
+
+
+.navbar-brand-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d6efd,
+            #0dcaf0
+        );
+
+    color: white;
+
+    font-size: 1.1rem;
+}
+
+
+.user-type-label {
+    color: #8a94a0;
+
+    font-size: 0.7rem;
+
+    /* Pone en mayúscula la primera letra del tipo de actor (p.ej. "alumno" -> "Alumno") sin duplicar ACTOR_TYPE_LABELS. */
+    text-transform: capitalize;
+}
+
+
+.user-type-value {
+    color: #1c2a3a;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   CABECERA DE SECCIÓN
+   ========================================================= */
+
+.section-kicker {
+    color: #0d6efd;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+}
+
+
+.section-title {
+    color: #1c2a3a;
+
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+.section-description {
+    color: #6c757d;
+}
+
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.app-card {
+    border-radius: 18px;
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 12px 35px rgba(30, 41, 59, 0.07);
+}
+
+
+.status-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background-color: rgba(25, 135, 84, 0.10);
+
+    color: #198754;
+
+    font-size: 1.35rem;
+}
+
+
+/* =========================================================
+   CAMPO DE INFORMACIÓN (etiqueta + valor) - usado en certificate-detail.html
+   ========================================================= */
+
+.info-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background-color: #f8f9fa;
+}
+
+
+.info-field-label {
+    color: #8a94a0;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+}
+
+
+.info-field-value {
+    color: #1c2a3a;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   FOOTER COMÚN
+   ========================================================= */
+
+.app-footer {
+    margin-top: 40px;
+
+    padding: 24px 0 32px;
+
+    border-top: 1px solid rgba(108, 117, 125, 0.12);
+}
+
+
+/* =========================================================
+   TABLA DE CERTIFICADOS
+   ========================================================= */
+
+/* Celdas de cabecera que están en la tabla de certificados*/
+.certificates-table thead th {
+    color: #8a94a0;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    border-bottom-width: 1px;
+}
+
+/* Celdas de datos que están en la tabla de certificados*/
+.certificates-table td {
+    font-size: 0.9rem;
+
+    vertical-align: middle;
+}
+
+
+/* =========================================================
+   DETALLE DE CERTIFICADO
+   ========================================================= */
+
+/* Evita que los badges de estado (dentro de .info-field, que es flex-column) se estiren a todo el ancho */
+.info-field .badge {
+    align-self: flex-start;
+
+    font-size: 0.85rem;
+}
+
+/* SHA-256, CID y TX Hash son valores largos: se parten en varias líneas en vez de desbordar la tarjeta */
+.hash-value {
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 0.82rem;
+
+    word-break: break-all;
+}
+
+/* Fila que junta el valor del hash con su botón "Copiar", permitiendo que ambos envuelvan en pantallas estrechas */
+.hash-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+/* Los elementos dentro de un contenedor flex pueden encogerse (valor 1) pero para que el botón copiar no quede muy encogido porque tiene a su izquierda 
+el texto largo del Hash, CID y Tx Cardano, le decimos con valro 0 que no se encoja. El que adapta su tamaño es el valor del hash, CID y TX Cardano */
+.copy-button {
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    .navbar-brand span {
+        font-size: 0.9rem;
+    }
+
+
+    .section-title {
+        font-size: 1.65rem;
+    }
+
+}
